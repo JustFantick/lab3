@@ -16,6 +16,10 @@ body {
   background-color: #25252d;
 }
 
+body.change {
+  background-color: gray;
+}
+
 .button {
   background-color: cyan;
   border: none;

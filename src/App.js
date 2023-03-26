@@ -8,9 +8,11 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
+      counter: 0,
       id: ''
     }
     this.handleClick = this.handleClick.bind(this);
+    this.handleBtnClick = this.handleBtnClick.bind(this);
   }
 
   handleClick() {
@@ -20,11 +22,22 @@ export default class App extends Component {
       }))
   }
 
+  handleBtnClick() {
+    this.setState((prevState) => ({
+      counter: prevState.counter + 1
+    }));
+
+    document.querySelector('body').classList.toggle('change');
+  }
+
   render() {
     return (
       <div className='button_container'>
         <button className='button' onClick={this.handleClick} >push me</button>
         <p className='paragraph'>{this.state.id}</p>
+
+        <button className='button' onClick={this.handleBtnClick} >Button2</button>
+        <p className='paragraph'>Counter: {this.state.counter}</p>
       </div>
     )
   }
